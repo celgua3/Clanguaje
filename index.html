@@ -1,62 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Mental Fit | Bienestar físico y mental desde casa</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Fit | Bienestar físico y mental desde casa</title>
 
-	<link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="css.css">
 
-	<!-- jQuery desde CDN (corregido) -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-	<header>
-		<div class="logo">Mental Fit</div>
 
-		<nav class="nav">
-			<ul class="nav-links">
-				<li><a href="#" data-page="descarga.html">Descarga</a></li>
-				<li><a href="#" data-page="info.html">Info</a></li>
-				<li><a href="#" data-page="servicio.html">Servicios</a></li>
-			</ul>
-		</nav>
+    <header>
+        <div class="logo">Mental Fit</div>
 
-		<img src="logo mentalfit(2).png" alt="Descarga Mental Fit" style="max-width:100px;">
+        <!-- Botón menú hamburguesa -->
+        <div id="menu-toggle" class="menu-toggle">☰</div>
 
-	</header>
-  
-	<main>
-		<section id="inicio">
-			<h1>Mejora tu bienestar físico y mental desde casa</h1>
-			<p>Con Mental Fit puedes mantenerte activo, relajarte y cuidar tu salud sin salir de tu hogar.
-			teniendo varios servicios desde esta app confiable </p>
-		</section>
+        <nav class="nav">
+            <ul class="nav-links">
+                <li><a href="#" data-page="descarga.html">Descarga</a></li>
+                <li><a href="#" data-page="info.html">Info</a></li>
+                <li><a href="#" data-page="servicio.html">Servicios</a></li>
+            </ul>
+        </nav>
 
-		<!-- Aquí se cargará el contenido dinámico -->
-		<section id="contenido-dinamico"></section>
-	</main>
+        <img src="logo mentalfit(2).png" alt="Descarga Mental Fit" style="max-width:100px;">
+    </header>
 
-	<script>
-		// --- Menú hamburguesa ---
-		$("#menu-toggle").click(function() {
-			$(".nav-links").toggleClass("active");
-		});
+    <main>
+        <section id="inicio">
+            <h1>Mejora tu bienestar físico y mental desde casa</h1>
+            <p>Con Mental Fit puedes mantenerte activo, relajarte y cuidar tu salud
+               sin salir de tu hogar. Teniendo varios servicios desde esta app confiable.</p>
+        </section>
 
-		// --- Carga dinámica con jQuery ---
-		$(".nav-links a").click(function(e) {
-			e.preventDefault(); // evita recargar la página
-			const page = $(this).data("page");
+        <!-- Aquí se cargará contenido dinámico -->
+        <section id="contenido-dinamico"></section>
+    </main>
 
-			// Cargar el contenido del archivo PHP en el contenedor
-			$("#contenido-dinamico").hide().load(page, function() {
-				$(this).fadeIn(400);
-			});
+    <script>
+        // Mostrar/Ocultar menú móvil
+        $("#menu-toggle").click(function() {
+            $(".nav-links").toggleClass("active");
+        });
 
-			// Cierra el menú en móviles
-			$(".nav-links").removeClass("active");
-		});
-	</script>
+        // Carga dinámica con jQuery
+        $(".nav-links a").click(function(e) {
+            e.preventDefault();
+            const page = $(this).data("page");
+
+            $("#contenido-dinamico").hide().load(page, function() {
+                $(this).fadeIn(400);
+            });
+
+            $(".nav-links").removeClass("active");
+        });
+    </script>
+
 </body>
 </html>
-
