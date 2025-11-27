@@ -1,0 +1,10 @@
+<?php
+function conexion() {
+    $conexion = mysqli_connect('localhost', 'root', '', 'mental');
+    if (!$conexion) {
+        echo "Error de conexión: " . mysqli_connect_error();
+        exit();
+    }
+    return $conexion;
+}
+?>
