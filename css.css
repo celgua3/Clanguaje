@@ -6,6 +6,21 @@ body {
 	background: linear-gradient(135deg, #9ad0ec, #b8f1b0);
 	color: #222;
 }
+.btn-descargar {
+	display: inline-block;
+	margin-top: 20px;
+	padding: 12px 20px;
+	background-color: #0b3d91;
+	color: white;
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: bold;
+	border-radius: 8px;
+}
+
+.btn-descargar:hover {
+	background-color: #09427a;
+}
 
 header {
 	display: flex;
@@ -82,3 +97,4 @@ footer {
 		display: block;
 	}
 }
+
